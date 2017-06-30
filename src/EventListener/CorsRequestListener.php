@@ -51,6 +51,9 @@ class CorsRequestListener implements EventSubscriberInterface
         
     }
 
+    /**
+     * Handle preflight requests
+     */
     public function onKernelRequest(GetResponseEvent $event)
     {
         // skip sub requests
@@ -80,15 +83,18 @@ class CorsRequestListener implements EventSubscriberInterface
             return;
         }
 
-        // Handling of common requests is in self::onKernelResponse
+        // Handling of simple requests is in self::onKernelResponse
     }
 
+    /**
+     * Handle simple requests
+     */
     public function onKernelResponse(FilterResponseEvent $event)
     {
         // get request
         $request = $event->getRequest();
 
-        // for preflight request response already defined in self::onKernelRequest
+        // preflight request already handled in self::onKernelRequest
         if ($request->isMethod(Request::METHOD_OPTIONS)) {
             return;
         }
@@ -109,6 +115,8 @@ class CorsRequestListener implements EventSubscriberInterface
     }
 
     /**
+     * Check if origin acceptable
+     *
      * @param string $origin
      * @return bool
      */
@@ -122,6 +130,8 @@ class CorsRequestListener implements EventSubscriberInterface
     }
 
     /**
+     * Add base cors headers
+     * 
      * @param Response $response
      * @param Response $response
      */
@@ -139,7 +149,7 @@ class CorsRequestListener implements EventSubscriberInterface
     }
 
     /**
-     * Applicable only for preflight request
+     * Add special headers for preflight requests
      *
      * @param Response $response
      * @param Response $response
@@ -163,6 +173,9 @@ class CorsRequestListener implements EventSubscriberInterface
         }
     }
 
+    /**
+     * Handled kernel events
+     */
     public static function getSubscribedEvents()
     {
         return [
