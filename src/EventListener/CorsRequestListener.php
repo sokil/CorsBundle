@@ -10,7 +10,7 @@ use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
- * @see https://www.html5rocks.com/static/images/cors_server_flowchart.png CORS Serwer Flowchart
+ * @see https://www.html5rocks.com/static/images/cors_server_flowchart.png CORS Server Flowchart
  */
 class CorsRequestListener implements EventSubscriberInterface
 {
