@@ -1,0 +1,9 @@
+services:
+  sokil.cors.event_listener.cors_request_listener:
+    class: Sokil\CorsBundle\EventListener\CorsRequestListener
+    arguments:
+      - [] #allowedOrigins
+      - false # withCredentials
+    tags:
+      - {name: kernel.event_listener, event: kernel.request, priority: 250}
+      - {name: kernel.event_listener, event: kernel.response}
