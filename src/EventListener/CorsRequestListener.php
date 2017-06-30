@@ -166,8 +166,10 @@ class CorsRequestListener implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            # Priority 8 has firewall, this method must be handled before firewall listener
-            KernelEvents::REQUEST => array('onKernelRequest'),
+            # Priority 8 has firewall listener
+            # priority 32 has router listener
+            # This listener must be handled before them
+            KernelEvents::REQUEST => array(array('onKernelRequest', 250)),
             KernelEvents::RESPONSE => array('onKernelResponse'),
         ];
     }
