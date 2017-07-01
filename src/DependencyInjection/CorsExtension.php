@@ -21,7 +21,7 @@ class CorsExtension extends Extension
         $container
             ->getDefinition('sokil.cors.event_listener.cors_request_listener')
             ->replaceArgument(0, $config['allowedOrigins'])
-            ->replaceArgument(1, $container['withCredentials'])
-            ->replaceArgument(2, $container['maxAge']);
+            ->replaceArgument(1, $config['withCredentials'])
+            ->replaceArgument(2, $config['maxAge']);
     }
 }
