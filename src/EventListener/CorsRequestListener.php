@@ -160,7 +160,7 @@ class CorsRequestListener implements EventSubscriberInterface
         if ($request->headers->has('Access-Control-Request-Method')) {
             $response->headers->set(
                 'Access-Control-Allow-Methods',
-                $request->headers->has('Access-Control-Request-Method')
+                $request->headers->get('Access-Control-Request-Method')
             );
         }
 
