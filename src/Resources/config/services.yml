@@ -2,7 +2,8 @@ services:
   sokil.cors.event_listener.cors_request_listener:
     class: Sokil\CorsBundle\EventListener\CorsRequestListener
     arguments:
-      - [] #allowedOrigins
+      - [] # allowedOrigins
       - false # withCredentials
+      - null # maxAge
     tags:
       - {name: kernel.event_subscriber}
