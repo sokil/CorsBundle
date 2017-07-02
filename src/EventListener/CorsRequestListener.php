@@ -171,6 +171,11 @@ class CorsRequestListener implements EventSubscriberInterface
                 $request->headers->get('Access-Control-Request-Headers')
             );
         }
+
+        // max age
+        if (!empty($this->maxAge)) {
+            $response->headers->set('Access-Control-Max-Age', $this->maxAge);
+        }
     }
 
     /**
