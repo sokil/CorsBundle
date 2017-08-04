@@ -44,5 +44,5 @@ cors:
 
 Listener `CorsRequestListener` is listened to kernel events of requests and add headers if this is CORS request and CORS allowed for that host.
 
-[badge-totalDownloads-img]: http://img.shields.io/packagist/dt/sokil/cors-bundle.svg?1
+[badge-totalDownloads-img]: http://img.shields.io/packagist/dt/sokil/cors-bundle.svg?2
 [badge-totalDownloads-url]: https://packagist.org/packages/sokil/cors-bundle
